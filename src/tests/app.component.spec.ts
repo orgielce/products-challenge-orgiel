@@ -3,7 +3,7 @@ import {RouterTestingModule} from '@angular/router/testing';
 import {AppComponent} from '../app/app.component';
 import {BrowserModule} from "@angular/platform-browser";
 import {HttpClientModule} from "@angular/common/http";
-import {HeaderComponent} from "../app/components";
+import {NgRxModule} from "../app/modules/store.module";
 
 
 describe('AppComponent', () => {
@@ -18,7 +18,7 @@ describe('AppComponent', () => {
       BrowserModule,
       // BrowserAnimationsModule,
       HttpClientModule,
-      HeaderComponent
+      NgRxModule
     ],
     declarations: [AppComponent]
   }));

@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {CommonModule, NgOptimizedImage} from '@angular/common';
+import {CommonModule} from '@angular/common';
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
@@ -15,8 +15,7 @@ import {AuthRoutingModule} from "./auth-routing.module";
     FormsModule,
     ReactiveFormsModule,
     AuthRoutingModule,
-    HttpClientModule,
-    NgOptimizedImage
+    HttpClientModule
   ]
 })
 export class AuthModule {

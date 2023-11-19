@@ -3,7 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {HeaderComponent} from "./components";
+
+import {HttpClientModule} from "@angular/common/http";
+import {NgRxModule} from "./modules/store.module";
 
 @NgModule({
   declarations: [
@@ -11,7 +13,10 @@ import {HeaderComponent} from "./components";
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    HttpClientModule,
+    AppRoutingModule,
+    // ngrx
+    NgRxModule
   ],
   providers: [],
   bootstrap: [AppComponent]
