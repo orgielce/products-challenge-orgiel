@@ -1,0 +1,16 @@
+// resolutions -------------------------------------
+
+@media only screen and (max-width: 760px) and (orientation: portrait) {
+  html {
+    font-size: 1rem
+  }
+}
+// tablet & desktop resolution -------- 760px - 2960px
+@for $i from 0 through 2200 {
+  $part: 0px + (760+($i));
+
+  $result: 0px + (calc($part/760) * 0.55);
+  @media only screen and (min-width: $part) {
+    html { font-size: $result; }
+  }
+}
