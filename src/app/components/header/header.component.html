@@ -1,6 +1,6 @@
 <header class="header-container">
 
-  <img src="assets/images/brand.svg" alt="Logo">
+  <img [routerLink]="customRoutes.Index" src="assets/images/brand.svg" alt="Logo">
 
   <div>
     <div>Home</div>
@@ -8,5 +8,5 @@
     <div>My Products</div>
   </div>
 
-  <div>Login</div>
+  <div [routerLink]="customRoutes.Login">Login</div>
 </header>

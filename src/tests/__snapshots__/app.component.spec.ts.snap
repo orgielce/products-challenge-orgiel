@@ -4,30 +4,6 @@ exports[`AppComponent should match with snapshot 1`] = `
 <div
   id="root2"
 >
-  <app-header>
-    <header
-      class="header-container"
-    >
-      <img
-        alt="Logo"
-        src="assets/images/brand.svg"
-      />
-      <div>
-        <div>
-          Home
-        </div>
-        <div>
-          About
-        </div>
-        <div>
-          My Products
-        </div>
-      </div>
-      <div>
-        Login
-      </div>
-    </header>
-  </app-header>
   <router-outlet />
   
 </div>

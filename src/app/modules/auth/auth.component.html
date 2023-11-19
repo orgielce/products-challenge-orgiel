@@ -1,0 +1,43 @@
+<div class="auth-container">
+  <div class="auth-content">
+
+    <div class="auth-content-left">
+      <div>
+        <img [routerLink]="customRoutes.Base" src="assets/images/brand.svg" width="100" height="100" alt="SLDMark Brand">
+        <p>we know what you like</p>
+      </div>
+
+      <img src="assets/images/brand-slogan-1.png" width="400" height="400" alt="Apps">
+    </div>
+
+    <form [formGroup]="authForm">
+
+      <div [routerLink]="customRoutes.Base">
+        <img src="assets/icons/back.svg" width="40" height="40" alt="Go to index page">
+        <div>Index</div>
+      </div>
+
+      <label>Name: </label>
+
+      <input type="text" placeholder="Laura Smitt" name="name" autocomplete="off"
+             formControlName="name"
+             [ngClass]="{'text-invalid': utils.invalidField(authForm, 'name')}">
+
+      <label>Key: </label>
+
+      <input type="text" placeholder="Your access key" name="key" autocomplete="off"
+             formControlName="key"
+             [ngClass]="{'text-invalid': utils.invalidField(authForm, 'key')}">
+      <div (click)="openNewTab(env.barCodeLookupLoginUrl)">Forget key</div>
+
+      <button type="button"
+              (click)="setLogin()"
+              [disabled]="authForm.invalid"
+              [ngClass]="{'invalid-btn': authForm.invalid}">Login</button>
+
+      <p>Doesn't have an account yet? <span (click)="openNewTab(env.barCodeLookupSignUpUrl)">SignUp</span></p>
+
+    </form>
+
+  </div>
+</div>
