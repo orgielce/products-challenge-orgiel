@@ -1,6 +1,32 @@
-//@use 'assets/styles/base';
-//
-//header {
-//  background: $bittersweet-500;
-//  height: 70px;
-//}
+.header-container {
+  display: flex;
+  justify-content: space-between;
+
+  background: var(--color-base);
+  height: 70px;
+  padding: 7px;
+}
+
+.header-container > img {
+  filter: brightness(0) invert(1);
+  width: 80px;
+}
+
+.header-container > div:first-of-type {
+  align-items: center;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  font-family: var(--ff-lato);
+  font-size: 15px;
+  justify-content: space-between;
+  width: 200px;
+}
+
+.header-container > div:last-of-type {
+  align-items: center;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  margin-right: 20px;
+}
