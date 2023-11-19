@@ -1,8 +1,9 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 
-import {ProductsComponent} from './products.component';
 import {HeaderComponent} from "../../components";
+import {ProductsComponent} from './products.component';
+import {ProductsRoutingModule} from "./products-routing.module";
 
 @NgModule({
   declarations: [
@@ -10,7 +11,8 @@ import {HeaderComponent} from "../../components";
   ],
   imports: [
     CommonModule,
-    HeaderComponent
+    HeaderComponent,
+    ProductsRoutingModule
   ]
 })
 export class ProductsModule {
