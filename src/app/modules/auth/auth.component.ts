@@ -2,8 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 
-import {BaseFormHelper, Credentials, ROUTES_PATH} from "../../shared";
+import {AuthAction, BaseFormHelper, Credentials, GlobalState, ROUTES_PATH} from "../../shared";
 import {environment} from "../../../environments/environment";
+import {Store} from "@ngrx/store";
 
 @Component({
   selector: 'app-auth',
@@ -20,6 +21,7 @@ export class AuthComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private router: Router,
+    private store: Store<GlobalState>
   ) {
     this.utils = new BaseFormHelper();
     this.authForm = this.fb.group(
@@ -42,6 +44,7 @@ export class AuthComponent implements OnInit {
       key: this.authForm.get('key')?.value
     }
 
+    this.store.dispatch(AuthAction.Login({credentials: payload}));
   }
 
 }
