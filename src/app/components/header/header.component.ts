@@ -18,5 +18,5 @@ export class HeaderComponent {
     this.user = authService.currentUserValue;
   }
 
-  isLogged = (): boolean => this.user.access_token.length > 0
+  isLogged = (): boolean => this.user?.access_token.length > 0
 }
