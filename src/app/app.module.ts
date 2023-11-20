@@ -1,11 +1,17 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
 
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import {KeyInterceptor} from "./shared";
+
 import {NgRxModule} from "./modules/store.module";
+
+import {NgxSpinnerModule} from "ngx-spinner";
+import {MessageService} from "primeng/api";
 
 @NgModule({
   declarations: [
@@ -13,12 +19,22 @@ import {NgRxModule} from "./modules/store.module";
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
+    NgxSpinnerModule,
     // ngrx
     NgRxModule
   ],
-  providers: [],
+  providers: [
+    MessageService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: KeyInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

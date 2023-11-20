@@ -1,0 +1,19 @@
+.swal2-styled.swal2-confirm {
+  background-color: var(--bittersweet-400) !important;
+  width: 120px;
+}
+
+.swal2-styled.swal2-confirm:focus {
+  box-shadow: unset !important;
+}
+
+.swal2-styled.swal2-cancel {
+  border-radius: unset !important;
+  width: 120px;
+}
+
+.swal2-cancel-success {
+  background-color: #707070 !important;
+  border-radius: unset !important;
+  width: 120px !important;
+}

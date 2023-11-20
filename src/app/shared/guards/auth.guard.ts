@@ -9,7 +9,7 @@ import {AuthService} from "../services";
 import {GlobalState} from "../store";
 import {Store} from "@ngrx/store";
 import {CurrentUser} from "../models";
-import {ROUTES_PATH} from "../routes";
+import {ROUTES_PATH} from "../enums/routes";
 
 @Injectable({providedIn: 'root'})
 export class AuthGuard implements CanActivate {

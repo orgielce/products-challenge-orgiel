@@ -49,4 +49,26 @@ export class AuthService {
         return currentUser;
       }));
   }
+
+  logOut(): Observable<CurrentUser> {
+    const currentUser: CurrentUser = {
+      access_token: '',
+      user: '',
+      name: ''
+    };
+    return of(currentUser)
+      .pipe(map(() => {
+
+        const authentication = {
+          currentUser: currentUser,
+          error: false,
+          loggedIn: false
+        };
+        localStorage.setItem('currentUser', JSON.stringify(currentUser));
+        localStorage.setItem('authentication', JSON.stringify(authentication));
+
+        this.currentUserSubject.next(currentUser);
+        return currentUser;
+      }));
+  }
 }

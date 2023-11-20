@@ -39,6 +39,14 @@ const reducer = createReducer(
         error: false,
       })
     ),
+    on(
+      AuthAction.LogoutComplete, (state, data) => ({
+        ...state,
+        currentUser: clearState(),
+        loading: false,
+        error: false,
+      })
+    ),
   )
 ;
 
@@ -47,4 +55,12 @@ export function authenticationReducer(
   action: Action
 ) {
   return reducer(state, action);
+}
+
+function clearState() {
+  return {
+    name: '',
+    user: '',
+    access_token: ''
+  }
 }

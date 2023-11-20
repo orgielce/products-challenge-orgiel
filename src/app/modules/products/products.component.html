@@ -6,5 +6,13 @@
     <i class="pi pi-th-large"></i>
     <i class="pi pi-bars"></i>
   </div>
-  <div>grid</div>
+
+  <br>
+  <div>
+    grid
+    <br>
+    <div *ngFor="let item of products | async; let i = index">
+      {{item?.barcode_number}} {{item?.title}}
+    </div>
+  </div>
 </main>
