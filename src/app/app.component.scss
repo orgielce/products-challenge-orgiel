@@ -1,0 +1,76 @@
+.loader {
+  width: 300px;
+  height: 90px;
+  position: relative;
+}
+.loader .mask {
+  width: 300px;
+  height: 90px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.color {
+  position: absolute;
+  bottom: 0;
+  -webkit-animation: maskAnim 2s ease infinite;
+  animation: maskAnim 2s ease infinite;
+}
+.color.color1,
+.color.color2 {
+  width: 0;
+  left: 0;
+  right: initial;
+  height: 90px;
+}
+.mask1 {
+  -webkit-mask-image: url(../assets/spinner/mask4.svg);
+  mask-image: url(../assets/spinner/mask4.svg);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+.mask2 {
+  -webkit-mask-image: url(../assets/spinner/mask3.svg);
+  mask-image: url(../assets/spinner/mask3.svg);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+@-webkit-keyframes maskAnim {
+  5%   { width: 0; left: 0; right: initial }
+  35%  { width: 100%; left: 0; right: initial }
+  65%  { width: 100%; left: initial; right: 0 }
+  95% { width: 0; left: initial; right: 0 }
+}
+
+@keyframes maskAnim {
+  5%   { width: 0; left: 0; right: initial }
+  35%  { width: 100%; left: 0; right: initial }
+  65%  { width: 100%; left: initial; right: 0 }
+  95% { width: 0; left: initial; right: 0 }
+}
+
+#loader {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 10;
+  height: 10px;
+  background-color: transparent;
+}
+
+.ngx-spinner-overlay {
+  top: 50% !important;
+  left: 50% !important;
+  margin: 0;
+  position: absolute;
+  transform: translate(-50%,-50%) !important;
+  background-color: rgba(204, 205, 210, 0.78) !important;
+
+  .loading-text {
+    position: absolute;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%,-50%) !important;
+  }
+}

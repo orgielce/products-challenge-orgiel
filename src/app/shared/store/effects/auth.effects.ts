@@ -6,7 +6,7 @@ import {of} from "rxjs";
 
 import {AuthService} from "../../services";
 import {NgxSpinnerService} from "ngx-spinner";
-import {ROUTES_PATH} from "../../routes";
+import {ROUTES_PATH} from "../../enums/routes";
 
 import {Store} from "@ngrx/store";
 import {AuthAction} from "../actions";
