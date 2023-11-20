@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {ROUTES_PATH} from "../../shared";
+import {AuthService, CurrentUser, ROUTES_PATH} from "../../shared";
 import {RouterLink} from "@angular/router";
 
 @Component({
@@ -12,4 +12,11 @@ import {RouterLink} from "@angular/router";
 })
 export class HeaderComponent {
   customRoutes = ROUTES_PATH;
+  user!: CurrentUser;
+
+  constructor(private authService: AuthService) {
+    this.user = authService.currentUserValue;
+  }
+
+  isLogged = (): boolean => this.user.access_token.length > 0
 }

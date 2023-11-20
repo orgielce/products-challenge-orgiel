@@ -2,11 +2,17 @@
 
   <img [routerLink]="customRoutes.Index" src="assets/images/brand.svg" alt="Logo">
 
-  <div>
+  <div *ngIf="!isLogged()">
     <div>Home</div>
     <div>About</div>
     <div>My Products</div>
   </div>
 
-  <div [routerLink]="customRoutes.Login">Login</div>
+  <div *ngIf="!isLogged()" [routerLink]="customRoutes.Login">Login</div>
+
+  <div *ngIf="isLogged()">
+    <i class="pi pi-user"></i>
+    {{user.name}}
+    <i class="pi pi-sign-out"></i>
+  </div>
 </header>

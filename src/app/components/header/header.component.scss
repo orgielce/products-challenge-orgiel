@@ -30,4 +30,8 @@
   cursor: pointer;
   display: flex;
   margin-right: 20px;
+  justify-content: flex-end;
+
+  i:first-of-type {margin-right: 10px;}
+  i:last-of-type {margin-left: 10px;}
 }
