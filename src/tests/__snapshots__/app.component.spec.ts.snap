@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppComponent should match with snapshot 1`] = `
+<div
+  id="root2"
+>
+  <router-outlet />
+  
+  <ngx-spinner
+    id="loader"
+    size="large"
+    type="timer"
+  >
+    
+  </ngx-spinner>
+</div>
+`;
