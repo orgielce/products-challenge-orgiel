@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {NgxSpinnerService} from "ngx-spinner";
-import {delay} from "rxjs";
+import {Observable} from "rxjs";
+
+import {ProductsService} from "../../shared/services/products.service";
+import {Product} from "../../shared";
 
 @Component({
   selector: 'app-products',
@@ -9,12 +11,12 @@ import {delay} from "rxjs";
 })
 export class ProductsComponent implements OnInit {
 
-  constructor(private spinner: NgxSpinnerService) {
-    spinner.show();
+  products!: Observable<Product[]>;
+
+  constructor(private productsService: ProductsService) {
   }
 
   ngOnInit() {
-    delay(3000);
-    this.spinner.hide();
+    this.products = this.productsService.getProducts();
   }
 }

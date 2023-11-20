@@ -54,36 +54,38 @@ export class KeyInterceptor implements HttpInterceptor {
           return throwError(error);
         } else if (error instanceof HttpErrorResponse) {
           const httpErrorCode = error.status;
-          let messAlert = error.error.message
-            ? error.error.message.toUpperCase()
+          let messAlert = error.statusText
+            ? error.statusText.toUpperCase()
             : 'SERVICE_NOT_AVAILABLE';
           switch (httpErrorCode) {
             case 0:
             case 400:
             case 403:
+                messAlert = 'Invalid API key'.toUpperCase();
+              break;
             case 404:
-              if (error.error.errors) {
-                messAlert = this.convertErrorsToString(error.error.errors);
-              }
+              messAlert = 'No data returned'.toUpperCase();
               break;
             case 405:
             case 409:
             case 412:
-
+              console.log(error.statusText.toUpperCase(), 900)
               break;
             case 422:
-            case 500:
-
+              console.log(error.statusText.toUpperCase(), 920)
               break;
+            case 429:
+              messAlert = 'Exceeded API call limits'.toUpperCase();
+              break;
+            case 500:
             case 503:
               messAlert = 'SERVICE_NOT_AVAILABLE';
               break;
             case 401:
-              if (error.error.message === "The key token is invalid.") {
-                //Emitir la accion de finalizar session
-                // this.store.dispatch(AuthAction.LogoutComplete());
-              }
-              return req;
+              messAlert = 'The key token is invalid.'.toUpperCase();
+              // finalizar session y ir a login
+              // this.store.dispatch(AuthAction.LogoutComplete()
+              // return req;
               break;
           }
 
@@ -93,16 +95,5 @@ export class KeyInterceptor implements HttpInterceptor {
         return throwError(error);
       })
     );
-  }
-
-  // Convert Errors Array to a Single String with <br> at the end
-  convertErrorsToString(errors: any) {
-    let newError = "";
-    for (const key in errors) {
-      if (Object.prototype.hasOwnProperty.call(errors, key)) {
-        newError += errors[key] + "<br>";
-      }
-    }
-    return newError.substring(0, newError.length - 4).toUpperCase();
   }
 }
