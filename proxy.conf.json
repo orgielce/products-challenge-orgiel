@@ -1,10 +1,7 @@
 {
   "/api": {
-    "target": "http://localhost:4200",
-    "secure": false,
-    "pathRewrite": {
-      "^/api": ""
-    },
+    "target": "https://api.barcodelookup.com/v3",
+    "secure": true,
     "changeOrigin": true,
     "logLevel": "debug"
   }

@@ -73,7 +73,8 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "challenge-orgiel:build:production"
+              "browserTarget": "challenge-orgiel:build:production",
+              "proxyConfig": "proxy.conf.json"
             },
             "development": {
               "browserTarget": "challenge-orgiel:build:development",
