@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {
   HttpRequest,
   HttpHandler,
@@ -17,14 +17,21 @@ import {NgxSpinnerService} from "ngx-spinner";
 import {AuthService} from "./auth.service";
 import {CurrentUser} from "../models";
 import {catchError} from "rxjs/operators";
+import {AlertService} from "./alert.service";
+import {AlertType} from "../enums";
+
+import Swal from "sweetalert2";
 
 @Injectable()
 export class KeyInterceptor implements HttpInterceptor {
 
   private access_token = '';
+  private alertType = AlertType;
+
   constructor(
     private router: Router,
     private authService: AuthService,
+    private alertService: AlertService,
     private store: Store<GlobalState>,
     private spinner: NgxSpinnerService,
     private actions$: Actions
@@ -41,7 +48,7 @@ export class KeyInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
     const cloneReq = request.clone({
-      params: request.params.set( 'key', this.access_token ),
+      params: request.params.set('key', this.access_token),
     });
 
     const req = this.access_token ? cloneReq : request;
@@ -51,41 +58,82 @@ export class KeyInterceptor implements HttpInterceptor {
       catchError(error => {
         if (error.name === "TimeoutError") {
           const messAlert = 'CONNECTION_TIMED_OUT';
+          Swal.fire({
+            title: 'CONNECTION',
+            text: messAlert,
+            icon: 'error'
+          }).then(() => {});
+          this.alertService.show(
+            this.alertType.Error,
+            'CONNECTION',
+            messAlert
+          );
           return throwError(error);
         } else if (error instanceof HttpErrorResponse) {
+          let messAlert = '';
           const httpErrorCode = error.status;
-          let messAlert = error.statusText
-            ? error.statusText.toUpperCase()
-            : 'SERVICE_NOT_AVAILABLE';
           switch (httpErrorCode) {
             case 0:
             case 400:
             case 403:
-                messAlert = 'Invalid API key'.toUpperCase();
+              messAlert = 'Invalid API key'.toUpperCase();
+              Swal.fire({
+                title: 'API key',
+                text: messAlert,
+                icon: 'error'
+              }).then(() => console.log(777));
               break;
             case 404:
               messAlert = 'No data returned'.toUpperCase();
+              this.alertService.show(
+                this.alertType.Error,
+                'Data',
+                messAlert
+              );
               break;
             case 405:
             case 409:
             case 412:
-              console.log(error.statusText.toUpperCase(), 900)
+              this.alertService.show(
+                this.alertType.Error,
+                'Method request',
+                error.statusText.toUpperCase()
+              );
               break;
             case 422:
-              console.log(error.statusText.toUpperCase(), 920)
+              this.alertService.show(
+                this.alertType.Error,
+                'Error',
+                error.statusText.toUpperCase()
+              );
               break;
             case 429:
               messAlert = 'Exceeded API call limits'.toUpperCase();
+              this.alertService.show(
+                this.alertType.Error,
+                'Exceeded limit',
+                messAlert
+              );
               break;
             case 500:
             case 503:
               messAlert = 'SERVICE_NOT_AVAILABLE';
+              this.alertService.show(
+                this.alertType.Error,
+                'SERVICE',
+                messAlert
+              );
               break;
             case 401:
               messAlert = 'The key token is invalid.'.toUpperCase();
               // finalizar session y ir a login
               // this.store.dispatch(AuthAction.LogoutComplete()
               // return req;
+              this.alertService.show(
+                this.alertType.Error,
+                'Invalid key',
+                messAlert
+              );
               break;
           }
 

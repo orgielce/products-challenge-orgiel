@@ -11,6 +11,8 @@ import {KeyInterceptor} from "./shared";
 import {NgRxModule} from "./modules/store.module";
 
 import {NgxSpinnerModule} from "ngx-spinner";
+import {MessageService} from "primeng/api";
+import {ToastModule} from "primeng/toast";
 
 @NgModule({
   declarations: [
@@ -23,9 +25,11 @@ import {NgxSpinnerModule} from "ngx-spinner";
     AppRoutingModule,
     NgxSpinnerModule,
     // ngrx
-    NgRxModule
+    NgRxModule,
+    ToastModule
   ],
   providers: [
+    MessageService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: KeyInterceptor,
