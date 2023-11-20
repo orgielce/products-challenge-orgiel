@@ -3,22 +3,22 @@ import {
   HttpRequest,
   HttpHandler,
   HttpEvent,
-  HttpInterceptor, HttpErrorResponse
+  HttpInterceptor, HttpErrorResponse, HttpHeaders
 } from '@angular/common/http';
 import {Observable, throwError} from 'rxjs';
 import {Router} from "@angular/router";
 
 import {Store} from "@ngrx/store";
 import {Actions} from "@ngrx/effects";
-import {GlobalState} from "../store";
+import {AuthAction, GlobalState} from "../store";
 
 import {NgxSpinnerService} from "ngx-spinner";
 
 import {AuthService} from "./auth.service";
 import {CurrentUser} from "../models";
 import {catchError} from "rxjs/operators";
-import {AlertService} from "./alert.service";
-import {AlertType} from "../enums";
+// import {AlertService} from "./alert.service";
+import {AlertType, ROUTES_PATH} from "../enums";
 
 import Swal from "sweetalert2";
 
@@ -31,7 +31,7 @@ export class KeyInterceptor implements HttpInterceptor {
   constructor(
     private router: Router,
     private authService: AuthService,
-    private alertService: AlertService,
+    // private alertService: AlertService,
     private store: Store<GlobalState>,
     private spinner: NgxSpinnerService,
     private actions$: Actions
@@ -47,7 +47,14 @@ export class KeyInterceptor implements HttpInterceptor {
   // Intercept all http calls and add key param
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
+    const headers = new HttpHeaders()
+      .append('Content-Type', 'application/json')
+      .append('Access-Control-Allow-Headers', 'Content-Type')
+      .append('Access-Control-Allow-Methods', 'GET')
+      .append('Access-Control-Allow-Origin', '*');
+
     const cloneReq = request.clone({
+      headers,
       params: request.params.set('key', this.access_token),
     });
 
@@ -63,11 +70,6 @@ export class KeyInterceptor implements HttpInterceptor {
             text: messAlert,
             icon: 'error'
           }).then(() => {});
-          this.alertService.show(
-            this.alertType.Error,
-            'CONNECTION',
-            messAlert
-          );
           return throwError(error);
         } else if (error instanceof HttpErrorResponse) {
           let messAlert = '';
@@ -80,60 +82,65 @@ export class KeyInterceptor implements HttpInterceptor {
               Swal.fire({
                 title: 'API key',
                 text: messAlert,
-                icon: 'error'
-              }).then(() => console.log(777));
+                icon: 'error',
+                confirmButtonText: 'Go to login'
+              }).then(() => {
+                this.store.dispatch(AuthAction.Logout());
+                this.router.navigate(["/" + ROUTES_PATH.Login]).then();
+              });
               break;
             case 404:
               messAlert = 'No data returned'.toUpperCase();
-              this.alertService.show(
-                this.alertType.Error,
-                'Data',
-                messAlert
-              );
+              Swal.fire({
+                title: 'Data',
+                text: messAlert,
+                icon: 'error'
+              }).then(() => console.log(404));
               break;
             case 405:
             case 409:
             case 412:
-              this.alertService.show(
-                this.alertType.Error,
-                'Method request',
-                error.statusText.toUpperCase()
-              );
+              Swal.fire({
+                title: 'Method request',
+                text: error.statusText.toUpperCase(),
+                icon: 'error'
+              }).then(() => console.log('Method request'));
               break;
             case 422:
-              this.alertService.show(
-                this.alertType.Error,
-                'Error',
-                error.statusText.toUpperCase()
-              );
+              Swal.fire({
+                title: 'Error',
+                text: error.statusText.toUpperCase(),
+                icon: 'error'
+              }).then(() => console.log('Error 422'));
               break;
             case 429:
               messAlert = 'Exceeded API call limits'.toUpperCase();
-              this.alertService.show(
-                this.alertType.Error,
-                'Exceeded limit',
-                messAlert
-              );
+              Swal.fire({
+                title: 'Exceeded limit',
+                text: messAlert,
+                icon: 'error'
+              }).then(() => console.log('Error 429'));
               break;
             case 500:
             case 503:
               messAlert = 'SERVICE_NOT_AVAILABLE';
-              this.alertService.show(
-                this.alertType.Error,
-                'SERVICE',
-                messAlert
-              );
+              Swal.fire({
+                title: 'SERVICE',
+                text: messAlert,
+                icon: 'error'
+              }).then(() => console.log('Error SERVICE'));
               break;
             case 401:
               messAlert = 'The key token is invalid.'.toUpperCase();
               // finalizar session y ir a login
-              // this.store.dispatch(AuthAction.LogoutComplete()
-              // return req;
-              this.alertService.show(
-                this.alertType.Error,
-                'Invalid key',
-                messAlert
-              );
+              Swal.fire({
+                title: 'Invalid key',
+                text: messAlert,
+                icon: 'error'
+              }).then(() => {
+                this.store.dispatch(AuthAction.Logout());
+                this.router.navigate(["/" + ROUTES_PATH.Login]).then();
+              });
               break;
           }
 

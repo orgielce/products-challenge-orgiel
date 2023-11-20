@@ -8,9 +8,7 @@ import {AuthService} from "../../services";
 import {NgxSpinnerService} from "ngx-spinner";
 import {ROUTES_PATH} from "../../enums/routes";
 
-import {Store} from "@ngrx/store";
 import {AuthAction} from "../actions";
-import {GlobalState} from "../app.states";
 
 @Injectable({providedIn: 'root'})
 export class AuthEffects {
@@ -18,16 +16,36 @@ export class AuthEffects {
   login$ = createEffect((): any =>
     this.actions$.pipe(
       ofType(AuthAction.Login),
-      // tap((action) => this.spinner.show()),
-      exhaustMap((action: any) =>
+      tap((action) => this.spinner.show()),
+      exhaustMap(action =>
         this.authService.login(action.credentials).pipe(
           map(data => {
-            // this.spinner.hide();
+            this.spinner.hide();
             this.router.navigate(["/" + ROUTES_PATH.Products]).then();
             return AuthAction.LoginComplete({data})
           }),
           catchError(error => {
-            // this.spinner.hide();
+            this.spinner.hide();
+            return of(AuthAction.FinishState({error}))
+          })
+        )
+      )
+    )
+  );
+
+  logout$ = createEffect((): any =>
+    this.actions$.pipe(
+      ofType(AuthAction.Logout),
+      tap((action) => this.spinner.show()),
+      exhaustMap(action =>
+        this.authService.logOut().pipe(
+          map(data => {
+            this.spinner.hide();
+            this.router.navigate(["/" + ROUTES_PATH.Base]).then();
+            return AuthAction.LogoutComplete();
+          }),
+          catchError(error => {
+            this.spinner.hide();
             return of(AuthAction.FinishState({error}))
           })
         )
@@ -38,8 +56,7 @@ export class AuthEffects {
   constructor(
     private actions$: Actions,
     private authService: AuthService,
-    // private spinner: NgxSpinnerService,
-    private store: Store<GlobalState>,
+    private spinner: NgxSpinnerService,
     public router: Router,
   ) {
   }

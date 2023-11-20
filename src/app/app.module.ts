@@ -12,7 +12,6 @@ import {NgRxModule} from "./modules/store.module";
 
 import {NgxSpinnerModule} from "ngx-spinner";
 import {MessageService} from "primeng/api";
-import {ToastModule} from "primeng/toast";
 
 @NgModule({
   declarations: [
@@ -25,8 +24,7 @@ import {ToastModule} from "primeng/toast";
     AppRoutingModule,
     NgxSpinnerModule,
     // ngrx
-    NgRxModule,
-    ToastModule
+    NgRxModule
   ],
   providers: [
     MessageService,

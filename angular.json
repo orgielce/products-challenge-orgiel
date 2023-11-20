@@ -76,7 +76,8 @@
               "browserTarget": "challenge-orgiel:build:production"
             },
             "development": {
-              "browserTarget": "challenge-orgiel:build:development"
+              "browserTarget": "challenge-orgiel:build:development",
+              "proxyConfig": "proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"
