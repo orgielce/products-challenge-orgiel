@@ -3,12 +3,16 @@
 <main class="products-container">
   <div class="products-container-title">
     Products
-    <i class="pi pi-th-large" (click)="setCurrentView(views.gallery)"></i>
-    <i class="pi pi-bars" (click)="setCurrentView(views.table)"></i>
+    <i class="pi pi-th-large"
+       pTooltip="Show products gallery" tooltipPosition="bottom"
+       (click)="setCurrentView(views.gallery)"></i>
+    <i class="pi pi-bars"
+       pTooltip="Show products table" tooltipPosition="bottom"
+       (click)="setCurrentView(views.table)"></i>
   </div>
 
   <div class="products-container-filters">
-    <input type="search" placeholder="Search...">
+    <input #generalSearch type="search" placeholder="Search..." (click)="setParams()">
 
     <div>
       <span>Filtros: </span>

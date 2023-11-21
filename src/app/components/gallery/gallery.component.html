@@ -1,4 +1,4 @@
-<gallery
+<gallery *ngIf="products && products.length > 0"
   [items]="images"
   [counter]="true"
   [loop]="true"
@@ -13,3 +13,9 @@
       </div>
     </ng-container>
 </gallery>
+
+<p-messages  *ngIf="products && products.length === 0"
+             (click)="reloadProducts()"
+             [value]="messages"
+             [enableService]="false"
+             [closable]="false"></p-messages>

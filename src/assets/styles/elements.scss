@@ -12,3 +12,7 @@ input::placeholder {
   border-right: 7px;
   color: var(--background3) !important;
 }
+.p-message.p-message-error {
+  padding: 20px 10px;
+  cursor: pointer;
+}

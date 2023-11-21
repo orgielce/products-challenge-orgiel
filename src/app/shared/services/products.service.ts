@@ -4,7 +4,7 @@ import {Observable, of} from "rxjs";
 import {map} from "rxjs/operators";
 
 import {environment} from "../../../environments/environment";
-import {Image, Poster, Product} from "../models";
+import {Image, Poster, Product, ProductsFilteringParams} from "../models";
 import {API_PATH} from "../enums";
 import {mockGallery, mockImages, mockProducts} from "../data";
 
@@ -16,11 +16,42 @@ export class ProductsService {
   constructor(private http: HttpClient) {
   }
 
-  getProducts(): Observable<Product[]> {
-    return of(mockProducts);
-    // return this.http.get<Observable<Product[]>>(
-    //   `${API_PATH.Products}?brand=Nike&page=1`
-    // ).pipe(map((data: any) =>  data.products));
+  getProducts(filters: ProductsFilteringParams): Observable<Product[]> {
+    // return of(mockProducts);
+    let query = '';
+    if (filters.base) {
+      query = `search=${filters.base}&formatted=y&page=${Number(filters.page) === 1 ? 1 : filters.page}`;
+    } else {
+      query = '';
+      if (filters.mpn) {
+        query += `mpn=${filters.mpn}`;
+      }
+      if (filters.asin) {
+        query += `asin=${filters.asin}`;
+      }
+      if (filters.title) {
+        query += `title=${filters.title}`;
+      }
+      if (filters.category) {
+        query += `category=${filters.category}`;
+      }
+      if (filters.manufacturer) {
+        query += `manufacturer=${filters.manufacturer}`;
+      }
+      if (filters.brand) {
+        query += `brand=${filters.brand}`;
+      }
+      if (filters.barcode) {
+        query += `barcode=${filters.barcode}`;
+      }
+
+      query += `&formatted=y&page=${Number(filters.page) === 1 ? 1 : filters.page}`;
+    }
+
+    return this.http.get<Observable<Product[]>>(
+      `${API_PATH.Products}?${query}`
+    ).pipe(map((data: any) =>  data.products));
+
   }
 
   getData(): Image[] {

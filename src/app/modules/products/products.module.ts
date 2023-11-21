@@ -6,6 +6,7 @@ import {GalleryComponent, HeaderComponent, PaginatorComponent, TableComponent} f
 
 import {ProductsComponent} from './products.component';
 import {ProductsRoutingModule} from "./products-routing.module";
+import {TooltipModule} from "primeng/tooltip";
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import {ProductsRoutingModule} from "./products-routing.module";
     FormsModule,
     PaginatorComponent,
     GalleryComponent,
-    TableComponent
+    TableComponent,
+    TooltipModule
   ]
 })
 export class ProductsModule {

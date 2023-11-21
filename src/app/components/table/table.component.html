@@ -1,4 +1,10 @@
-<div class="table-container">
+<p-messages  *ngIf="products && products.length === 0"
+             (click)="reloadProducts()"
+             [value]="messages"
+             [enableService]="false"
+             [closable]="false"></p-messages>
+
+<div class="table-container" *ngIf="products && products.length > 0">
 
   <div class="gridify-header">
     <span pTooltip="The product random image" tooltipPosition="bottom"></span>
@@ -28,11 +34,8 @@
       <div pTooltip="{{product.mpn}}" tooltipPosition="bottom"><span>MPN:</span> {{ product.mpn }}</div>
       <div pTooltip="{{product.asin}}" tooltipPosition="bottom"><span>ASIN:</span> {{ product.asin }}</div>
     </span>
-    <span class="price-row" *ngIf="product && product.stores && product?.stores.length > 0">
-      {{product?.stores[0].currency}} {{product?.stores[0].currency_symbol}}{{product?.stores[0].price}}
-    </span>
-    <span class="price-row" *ngIf="product && product.stores && product?.stores.length === 0">
-      0.00
+    <span class="price-row">
+      {{getPrice(product)}}
     </span>
     <span pTooltip="{{product.brand}}" tooltipPosition="bottom">{{ product.brand }}</span>
     <span pTooltip="{{product.category}}" tooltipPosition="bottom">{{ product.category }}</span>
