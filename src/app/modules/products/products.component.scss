@@ -24,6 +24,8 @@
     display: flex;
     gap: 15px;
     justify-content: space-between;
+    border-bottom: 1px solid var(--background5);
+    padding: 15px 0;
   }
 
   &-filters > input {

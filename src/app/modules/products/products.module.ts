@@ -6,6 +6,7 @@ import {ProductsComponent} from './products.component';
 import {ProductsRoutingModule} from "./products-routing.module";
 import {FormsModule} from "@angular/forms";
 import {InputTextModule} from "primeng/inputtext";
+import {PaginatorComponent} from "../../components/paginator/paginator.component";
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import {InputTextModule} from "primeng/inputtext";
     HeaderComponent,
     ProductsRoutingModule,
     FormsModule,
-    InputTextModule
+    // InputTextModule
+    PaginatorComponent
   ]
 })
 export class ProductsModule {

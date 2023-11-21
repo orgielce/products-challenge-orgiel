@@ -1,0 +1,35 @@
+.paginator-container {
+  display: flex;
+  gap: 10px;
+  align-items: end;
+
+  input {
+    background-color: var(--color-base);
+    border-radius: 7px;
+    border: 1px solid var(--background1);
+    color: white;
+    font-weight: bold;
+    height: 37px;
+    outline: transparent;
+    padding: 9px 12px;
+    text-align: center;
+    width: 40px;
+  }
+
+  &-left {
+    @extend .base-container;
+  }
+
+  &-right {
+    @extend .base-container;
+  }
+}
+
+.base-container {
+  background: var(--background1);
+  cursor: pointer;
+  padding: 9px;
+  border-radius: 7px;
+
+  i { color: var(--background4); }
+}
