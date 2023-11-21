@@ -8,10 +8,10 @@ import {AppComponent} from './app.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {KeyInterceptor} from "./shared";
 
-import {NgRxModule} from "./modules/store.module";
-
 import {NgxSpinnerModule} from "ngx-spinner";
 import {MessageService} from "primeng/api";
+
+import {NgRxModule} from "./modules";
 
 @NgModule({
   declarations: [
