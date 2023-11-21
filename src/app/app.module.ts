@@ -13,6 +13,8 @@ import {MessageService} from "primeng/api";
 
 import {NgRxModule} from "./modules";
 
+import {GALLERY_CONFIG, GalleryConfig} from "ng-gallery";
+
 @NgModule({
   declarations: [
     AppComponent
@@ -32,6 +34,13 @@ import {NgRxModule} from "./modules";
       provide: HTTP_INTERCEPTORS,
       useClass: KeyInterceptor,
       multi: true
+    },
+    {
+      provide: GALLERY_CONFIG,
+      useValue: {
+        autoHeight: true,
+        imageSize: 'cover'
+      } as GalleryConfig
     }
   ],
   bootstrap: [AppComponent]

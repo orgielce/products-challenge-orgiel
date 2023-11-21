@@ -3,8 +3,8 @@
 <main class="products-container">
   <div class="products-container-title">
     Products
-    <i class="pi pi-th-large"></i>
-    <i class="pi pi-bars"></i>
+    <i class="pi pi-th-large" (click)="setCurrentView(views.gallery)"></i>
+    <i class="pi pi-bars" (click)="setCurrentView(views.table)"></i>
   </div>
 
   <div class="products-container-filters">
@@ -18,8 +18,9 @@
     <app-paginator></app-paginator>
   </div>
 
-  <br>
-  <div>
+  <app-gallery *ngIf="currentView === views.gallery"></app-gallery>
+
+  <div *ngIf="currentView === views.table">
     grid
     <br>
     <div *ngFor="let item of products$ | async; let i = index">

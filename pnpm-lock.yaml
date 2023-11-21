@@ -8,6 +8,9 @@ dependencies:
   '@angular/animations':
     specifier: ^16.2.0
     version: 16.2.12(@angular/core@16.2.12)
+  '@angular/cdk':
+    specifier: ^16.2.0
+    version: 16.2.0(@angular/common@16.2.12)(@angular/core@16.2.12)(rxjs@7.8.1)
   '@angular/common':
     specifier: ^16.2.0
     version: 16.2.12(@angular/core@16.2.12)(rxjs@7.8.1)
@@ -41,12 +44,21 @@ dependencies:
   '@ngrx/store':
     specifier: ^16.3.0
     version: 16.3.0(@angular/core@16.2.12)(rxjs@7.8.1)
+  hammerjs:
+    specifier: ^2.0.8
+    version: 2.0.8
+  ng-gallery:
+    specifier: ^11.0.0
+    version: 11.0.0(@angular/cdk@16.2.0)(@angular/common@16.2.12)(@angular/core@16.2.12)(rxjs@7.8.1)
   ngrx-store-localstorage:
     specifier: ^16.0.0
     version: 16.0.0(@angular/common@16.2.12)(@angular/core@16.2.12)(@ngrx/store@16.3.0)
   ngx-spinner:
     specifier: ^16.0.2
     version: 16.0.2(@angular/animations@16.2.12)(@angular/common@16.2.12)(@angular/core@16.2.12)
+  primeflex:
+    specifier: ^3.3.1
+    version: 3.3.1
   primeicons:
     specifier: ^6.0.1
     version: 6.0.1
@@ -291,6 +303,21 @@ packages:
     dependencies:
       '@angular/core': 16.2.12(rxjs@7.8.1)(zone.js@0.13.3)
       tslib: 2.6.2
+
+  /@angular/cdk@16.2.0(@angular/common@16.2.12)(@angular/core@16.2.12)(rxjs@7.8.1):
+    resolution: {integrity: sha512-pOIXP15uQkl3bf7t0i25+0uBjkHkVmBgwOMlqE9imY4gGq7UswbZRYHaGudJITin2ASFqKDgKvwNRCBqfmjO4A==}
+    peerDependencies:
+      '@angular/common': ^16.0.0 || ^17.0.0
+      '@angular/core': ^16.0.0 || ^17.0.0
+      rxjs: ^6.5.3 || ^7.4.0
+    dependencies:
+      '@angular/common': 16.2.12(@angular/core@16.2.12)(rxjs@7.8.1)
+      '@angular/core': 16.2.12(rxjs@7.8.1)(zone.js@0.13.3)
+      rxjs: 7.8.1
+      tslib: 2.6.2
+    optionalDependencies:
+      parse5: 7.1.2
+    dev: false
 
   /@angular/cli@16.2.10:
     resolution: {integrity: sha512-zDqlD+rXFuYZP169c2v35HkMbkchVCft5sS+VpoCCgYTk2rwxpeYkjJ8DQZztZJZRXQ+EMpkv/TubswmDro2zA==}
@@ -4334,7 +4361,6 @@ packages:
   /entities@4.5.0:
     resolution: {integrity: sha512-V0hjH4dGPh9Ao5p0MoRY6BVqtwCjhz6vI5LT8AJ55H+4g9/4vbHx1I54fS0XuclLhDHArPQCiMjDxjaL8fPxhw==}
     engines: {node: '>=0.12'}
-    dev: true
 
   /env-paths@2.2.1:
     resolution: {integrity: sha512-+h1lkLKhZMTYjog1VEpJNG7NZJWcuc2DDk/qsqSTRRCOXiLjeQ1d1/udrUGhqMxUgAlwKNZ0cf2uqan5GLuS2A==}
@@ -5012,6 +5038,11 @@ packages:
       - supports-color
       - utf-8-validate
     dev: true
+
+  /hammerjs@2.0.8:
+    resolution: {integrity: sha512-tSQXBXS/MWQOn/RKckawJ61vvsDpCom87JgxiYdGwHdOa0ht0vzUWDlfioofFCRU0L+6NGDt6XzbgoJvZkMeRQ==}
+    engines: {node: '>=0.8.0'}
+    dev: false
 
   /handle-thing@2.0.1:
     resolution: {integrity: sha512-9Qn4yBxelxoh2Ow62nP+Ka/kMnOXRi8BXnRaUwezLNhqelnN49xKz4F/dPP8OYLxLxq6JDtZb2i9XznUQbNPTg==}
@@ -6665,6 +6696,21 @@ packages:
     resolution: {integrity: sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==}
     dev: true
 
+  /ng-gallery@11.0.0(@angular/cdk@16.2.0)(@angular/common@16.2.12)(@angular/core@16.2.12)(rxjs@7.8.1):
+    resolution: {integrity: sha512-xG0WD4Hd8FrKAinrH+dseH3dpbthhgc+n6EKUCv1WuwdUJC7YiEMuPOl1aV2t8DxSblVUokR2w5Y6pAFRo9Ixw==}
+    peerDependencies:
+      '@angular/cdk': '>=16.0.0'
+      '@angular/common': '>=16.0.0'
+      '@angular/core': '>=16.0.0'
+      rxjs: '>=7.0.0'
+    dependencies:
+      '@angular/cdk': 16.2.0(@angular/common@16.2.12)(@angular/core@16.2.12)(rxjs@7.8.1)
+      '@angular/common': 16.2.12(@angular/core@16.2.12)(rxjs@7.8.1)
+      '@angular/core': 16.2.12(rxjs@7.8.1)(zone.js@0.13.3)
+      rxjs: 7.8.1
+      tslib: 2.6.2
+    dev: false
+
   /ngrx-store-localstorage@16.0.0(@angular/common@16.2.12)(@angular/core@16.2.12)(@ngrx/store@16.3.0):
     resolution: {integrity: sha512-2aySPLexpmcXVe2ms83z0AoAWWR4yj8gg3hE6GNC6g6HIxJ0GVlA8KdDA5je0BFO1a6ew5LEiq6/b+tFlIDKEQ==}
     peerDependencies:
@@ -7079,7 +7125,6 @@ packages:
     resolution: {integrity: sha512-Czj1WaSVpaoj0wbhMzLmWD69anp2WH7FXMB9n1Sy8/ZFF9jolSQVMu1Ij5WIyGmcBmhk7EOndpO4mIpihVqAXw==}
     dependencies:
       entities: 4.5.0
-    dev: true
 
   /parseurl@1.3.3:
     resolution: {integrity: sha512-CiyeOxFT/JZyN5m0z9PfXw4SCBJ6Sygz1Dpl0wqjlhDEGGBP1GnsUVEL0p63hoG1fcj3fHynXi9NYO4nWOL+qQ==}
@@ -7263,6 +7308,10 @@ packages:
       ansi-styles: 5.2.0
       react-is: 18.2.0
     dev: true
+
+  /primeflex@3.3.1:
+    resolution: {integrity: sha512-zaOq3YvcOYytbAmKv3zYc+0VNS9Wg5d37dfxZnveKBFPr7vEIwfV5ydrpiouTft8MVW6qNjfkaQphHSnvgQbpQ==}
+    dev: false
 
   /primeicons@6.0.1:
     resolution: {integrity: sha512-KDeO94CbWI4pKsPnYpA1FPjo79EsY9I+M8ywoPBSf9XMXoe/0crjbUK7jcQEDHuc0ZMRIZsxH3TYLv4TUtHmAA==}

@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Observable} from "rxjs";
 
 
-import {GlobalState, Product, ProductAction, ProductsFilteringParams} from "../../shared";
+import {GlobalState, Product, ProductAction, ProductsFilteringParams, ViewType} from "../../shared";
 import {Store} from "@ngrx/store";
 
 @Component({
@@ -15,6 +15,8 @@ export class ProductsComponent implements OnInit {
   products!: Product[];
   products$!: Observable<Product[]>;
   searchParams$!: Observable<ProductsFilteringParams>;
+  views = ViewType;
+  currentView: ViewType = this.views.gallery;
 
   constructor(private store: Store<GlobalState>) {
   }
@@ -30,4 +32,6 @@ export class ProductsComponent implements OnInit {
       this.store.dispatch(ProductAction.GetProducts());
     }
   }
+
+  setCurrentView = (current: ViewType) => this.currentView = current;
 }
