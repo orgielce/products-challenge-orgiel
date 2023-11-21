@@ -6,10 +6,9 @@ input, button {
 input::placeholder {
   color: white;
 }
-.p-tooltip {
+.p-tooltip .p-tooltip-text {
   padding: 10px !important;
-  background: var(--color-base) !important;
-  //background-color: transparent !important;
-  opacity: 0 !important;
-  color: white !important;
+  background-color: var(--background7) !important;
+  border-right: 7px;
+  color: var(--background3) !important;
 }
