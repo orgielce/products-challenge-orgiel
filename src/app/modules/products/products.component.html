@@ -15,10 +15,15 @@
 
     </div>
 
-    <app-paginator></app-paginator>
+    <app-paginator *ngIf="currentView === views.table"></app-paginator>
+<!--    <div *ngIf="currentView === views.gallery"></div>-->
   </div>
 
-  <app-gallery *ngIf="currentView === views.gallery"></app-gallery>
+  <app-gallery
+    *ngIf="currentView === views.gallery"
+    [products]="products"
+    (setViewFn)="setCurrentView($event)"
+  ></app-gallery>
 
   <div *ngIf="currentView === views.table">
     grid
