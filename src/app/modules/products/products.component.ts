@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {Observable} from "rxjs";
 
-import {ProductsService} from "../../shared/services/products.service";
-import {Product} from "../../shared";
+
+import {GlobalState, Product, ProductAction, ProductsFilteringParams} from "../../shared";
+import {Store} from "@ngrx/store";
 
 @Component({
   selector: 'app-products',
@@ -11,12 +12,22 @@ import {Product} from "../../shared";
 })
 export class ProductsComponent implements OnInit {
 
-  products!: Observable<Product[]>;
+  products!: Product[];
+  products$!: Observable<Product[]>;
+  searchParams$!: Observable<ProductsFilteringParams>;
 
-  constructor(private productsService: ProductsService) {
+  constructor(private store: Store<GlobalState>) {
   }
 
   ngOnInit() {
-    this.products = this.productsService.getProducts();
+    this.products$ = this.store.select((store) => store.products.products);
+    this.products$.subscribe(p => this.products = p);
+    this.searchParams$ = this.store.select(
+      (store) => store.products.searchParams
+    );
+
+    if (this.products && this.products.length === 0) {
+      this.store.dispatch(ProductAction.GetProducts());
+    }
   }
 }
