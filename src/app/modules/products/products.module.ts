@@ -2,7 +2,8 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FormsModule} from "@angular/forms";
 
-import {GalleryComponent, HeaderComponent, PaginatorComponent} from "../../components";
+import {GalleryComponent, HeaderComponent, PaginatorComponent, TableComponent} from "../../components";
+
 import {ProductsComponent} from './products.component';
 import {ProductsRoutingModule} from "./products-routing.module";
 
@@ -16,7 +17,8 @@ import {ProductsRoutingModule} from "./products-routing.module";
     ProductsRoutingModule,
     FormsModule,
     PaginatorComponent,
-    GalleryComponent
+    GalleryComponent,
+    TableComponent
   ]
 })
 export class ProductsModule {

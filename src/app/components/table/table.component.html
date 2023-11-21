@@ -1,0 +1,40 @@
+<p-table [value]="products" [tableStyle]="{ 'min-width': '50rem' }">
+  <ng-template pTemplate="header">
+    <tr>
+      <th pTooltip="Enter your username" tooltipPosition="bottom"></th>
+      <th pTooltip="Enter your username" tooltipPosition="bottom">Title</th>
+      <th pTooltip="Enter your username" tooltipPosition="bottom">Barcode</th>
+      <th pTooltip="Enter your username" tooltipPosition="bottom">Mpn</th>
+      <th pTooltip="Enter your username" tooltipPosition="bottom">Asin</th>
+      <th pTooltip="Enter your username" tooltipPosition="bottom">Brand</th>
+      <th pTooltip="Enter your username" tooltipPosition="bottom">Category</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-product>
+    <tr>
+      <td>
+        <img src="{{product.images[0]}}" width="100" alt="{{product.alt}}">
+      </td>
+      <td>{{ product.title }}</td>
+      <td>{{ product.barcode_number }}</td>
+      <td>{{ product.mpn }}</td>
+      <td>{{ product.asin }}</td>
+      <td>{{ product.brand }}</td>
+      <td>{{ product.category }}</td>
+    </tr>
+  </ng-template>
+</p-table>
+
+<!--barcode: El código de barras del producto.-->
+
+<!--• mpn: Número de parte del fabricante.-->
+
+<!--• asin: Número de identificación estándar de Amazon.-->
+
+<!--• title: El título del producto.-->
+
+<!--• manufacturer: El fabricante del producto.-->
+
+<!--• brand: La marca del producto.-->
+
+<!--• category: La categoría a la que pertenece el producto.-->
