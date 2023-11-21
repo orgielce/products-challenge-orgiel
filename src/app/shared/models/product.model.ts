@@ -75,3 +75,14 @@ export interface Shipping {
   service: string;
   price: string;
 }
+
+export interface ProductsFilteringParams {
+  barcode?: string;
+  mpn?: string;
+  asin?: string;
+  title?: string;
+  manufacturer?: string;
+  brand?: string;
+  category?: string;
+  page?: string;
+}

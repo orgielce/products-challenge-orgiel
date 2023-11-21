@@ -1,17 +1,28 @@
 <app-header></app-header>
 
 <main class="products-container">
-  <div class="products-container-title">Products</div>
-  <div>
+  <div class="products-container-title">
+    Products
     <i class="pi pi-th-large"></i>
     <i class="pi pi-bars"></i>
+  </div>
+
+  <div class="products-container-filters">
+    <input type="search" placeholder="Search...">
+
+    <div>
+      <span>Filtros: </span>
+
+    </div>
+
+    <app-paginator></app-paginator>
   </div>
 
   <br>
   <div>
     grid
     <br>
-    <div *ngFor="let item of products | async; let i = index">
+    <div *ngFor="let item of products$ | async; let i = index">
       {{item?.barcode_number}} {{item?.title}}
     </div>
   </div>
