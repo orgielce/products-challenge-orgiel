@@ -1,0 +1,9 @@
+<div class="card-container">
+  <img [src]="product && product.images[0]" alt="{{product.title}}">
+
+  <p>{{product.title}}</p>
+
+  <div>$***</div>
+
+  <button [routerLink]="customRoutes.Login">Login to show prices</button>
+</div>

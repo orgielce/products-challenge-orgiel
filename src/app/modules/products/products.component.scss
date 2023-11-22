@@ -5,6 +5,9 @@
   margin: 20px;
   padding: 10px 20px;
 
+  height: calc(100% - 70px);
+  @extend .custom-scroll;
+
   &-title {
     display: flex;
     font-size: 24px;
@@ -34,7 +37,7 @@
     outline: transparent;
     display: block;
     padding: 9px 12px 9px 40px;
-    background: transparent url(src/assets/icons/buscar.svg) no-repeat 10px ;
+    background: transparent url(buscar.svg) no-repeat 10px ;
     background-size: 20px;
     background-color: var(--background1);
     border-radius: 7px;
@@ -48,5 +51,29 @@
 
   &-filters > div:first-of-type {
     display: flex;
+  }
+}
+
+.custom-scroll {
+  overflow-y: scroll !important;
+  // firefox
+  scrollbar-width: thin;
+  scrollbar-color: var(--background4) var(--background3);
+
+  // chrome
+  &::-webkit-scrollbar {
+    width: 7px;
+    background: var(--background3);
+    border-radius: 10px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--background4);
+    border-radius: 10px;
+    width: 7px;
+  }
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px var(--background4);
+    border-radius: 10px;
+    width: 7px;
   }
 }

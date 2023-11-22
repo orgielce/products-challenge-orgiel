@@ -1,11 +1,18 @@
-<app-header></app-header>
+<main class="layout-container">
 
-<br>
-<br>
+  <app-gallery [products]="products"></app-gallery>
 
-<p>layout works!</p>
+  <div class="description">
+    <img src="assets/icons/comment.PNG" alt="Comment">
+    <p>
+      SLDMARK is truly an impressive platform, with a wide variety of products. You can easily find what you need. The quality is also exceptional, I have never been disappointed.
+      Remember that we know what you like.
+    </p>
+  </div>
 
+  <div class="spot">
+    <img src="assets/images/spot.jpeg" alt="Spot">
 
-<br>
-<br>
-<br>  contenidooooo
+    <app-card *ngFor="let product of products | slice:0:3;" [product]="product"></app-card>
+  </div>
+</main>

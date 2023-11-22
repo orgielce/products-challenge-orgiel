@@ -3,9 +3,9 @@
   <img [routerLink]="customRoutes.Index" src="assets/images/brand.svg" alt="Logo">
 
   <div *ngIf="!isLogged()">
-    <div>Home</div>
-    <div>About</div>
-    <div>My Products</div>
+    <div [routerLink]="customRoutes.Index">Home</div>
+    <div [routerLink]="customRoutes.About">About</div>
+    <div [routerLink]="customRoutes.Challenge">Challenge</div>
   </div>
 
   <div *ngIf="!isLogged()" [routerLink]="customRoutes.Login">Login</div>

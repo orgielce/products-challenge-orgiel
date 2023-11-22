@@ -1,7 +1,7 @@
 <div class="paginator-container">
 
   <div class="paginator-container-left"
-       [ngClass]="{'btn-disabled': searchParams?.page === '1'}"
+       [ngClass]="{'btn-disabled': currentPage.value === '1'}"
        (click)="previous()">
     <i class="pi pi-chevron-left"></i>
   </div>

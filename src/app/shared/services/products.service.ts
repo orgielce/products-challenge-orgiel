@@ -67,4 +67,9 @@ export class ProductsService {
     const posters = mockGallery;
     return Promise.resolve(posters);
   }
+
+  getMockProducts(): Promise<Product[]> {
+    const mock = mockProducts;
+    return Promise.resolve(mock);
+  }
 }

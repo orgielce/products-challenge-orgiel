@@ -14,20 +14,22 @@ import {MessageService} from "primeng/api";
 import {NgRxModule} from "./modules";
 
 import {GALLERY_CONFIG, GalleryConfig} from "ng-gallery";
+import {HeaderComponent} from "./components";
 
 @NgModule({
   declarations: [
     AppComponent
   ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    HttpClientModule,
-    AppRoutingModule,
-    NgxSpinnerModule,
-    // ngrx
-    NgRxModule
-  ],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        HttpClientModule,
+        AppRoutingModule,
+        NgxSpinnerModule,
+        // ngrx
+        NgRxModule,
+        HeaderComponent
+    ],
   providers: [
     MessageService,
     {
