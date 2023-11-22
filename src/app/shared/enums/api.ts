@@ -1,3 +1,3 @@
 export enum API_PATH {
-  Products = '/api/products',
+  Products = '/v3/products',
 }

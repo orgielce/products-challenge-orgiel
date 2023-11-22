@@ -19,8 +19,11 @@
 
     </div>
 
-    <app-paginator *ngIf="currentView === views.table"></app-paginator>
-<!--    <div *ngIf="currentView === views.gallery"></div>-->
+    <app-paginator
+      *ngIf="currentView === views.table"
+      [searchParams]="searchParams"
+      (updateCurrentPage)="setCurrentPage($event)"></app-paginator>
+
   </div>
 
   <app-gallery

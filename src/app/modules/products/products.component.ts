@@ -39,6 +39,16 @@ export class ProductsComponent implements OnInit {
 
   setCurrentView = (current: ViewType) => this.currentView = current;
 
+  setCurrentPage = (currentPage: number) => {
+    this.store.dispatch(
+      ProductAction.UpdateProductsParams({
+        params: {
+          page: currentPage.toString()
+        },
+      })
+    );
+  };
+
   setParams = (time: number = 1500): void => {
     setTimeout(() => {
       this.store.dispatch(

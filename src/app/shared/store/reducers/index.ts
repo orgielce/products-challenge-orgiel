@@ -17,7 +17,7 @@ export const reducers: ActionReducerMap<GlobalState> = {
 export function localStorageSyncReducer(reducer: ActionReducer<GlobalState>): ActionReducer<GlobalState> {
   return localStorageSync({keys: [
       { authentication: ['loggedIn', 'currentUser', 'error']},
-      { products: ['products', 'loading', 'error']},
+      { products: ['products', 'loading', 'error', 'searchParams']},
     ], rehydrate: true})(reducer);
 }
 export const metaReducers: Array<MetaReducer<any, any>> = [localStorageSyncReducer];

@@ -1,6 +1,6 @@
 {
-  "/api": {
-    "target": "https://api.barcodelookup.com/v3",
+  "/v3": {
+    "target": "https://api.barcodelookup.com",
     "secure": true,
     "changeOrigin": true,
     "logLevel": "debug"
