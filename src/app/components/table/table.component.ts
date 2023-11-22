@@ -4,7 +4,7 @@ import {NgClass, NgFor, NgIf} from "@angular/common";
 import {TableModule} from "primeng/table";
 import {TooltipModule} from "primeng/tooltip";
 
-import {GlobalState, Product, ProductAction, ProductsFilteringParams} from "../../shared";
+import {DefaultImage, GlobalState, Product, ProductAction, ProductsFilteringParams} from "../../shared";
 import {MessagesModule} from "primeng/messages";
 
 import {Message} from "primeng/api";
@@ -51,5 +51,9 @@ export class TableComponent implements OnInit {
 
     return '0.00';
   };
+
+  loadDefaultImage(event: any): void {
+    event.target.src = DefaultImage.product;
+  }
 
 }

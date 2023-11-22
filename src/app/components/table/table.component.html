@@ -20,7 +20,7 @@
        [ngClass]="{'gray-row': i % 2 === 0}"
        *ngFor="let product of products; let i = index; trackBy: trackByIndex">
     <span>
-      <img src="{{product.images[0]}}" alt="{{product.title}}">
+      <img src="{{product.images[0]}}" alt="{{product.title}}" (error)="loadDefaultImage($event)">
     </span>
     <span pTooltip="{{product.title}}" tooltipPosition="bottom" class="title-row">
       <div>{{product.title}}</div>
