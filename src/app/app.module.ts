@@ -14,11 +14,11 @@ import {MessageService} from "primeng/api";
 import {NgRxModule} from "./modules";
 
 import {GALLERY_CONFIG, GalleryConfig} from "ng-gallery";
-import {HeaderComponent} from "./components";
+import {HeaderComponent, PageNotFoundComponent} from "./components";
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent, PageNotFoundComponent
   ],
     imports: [
         BrowserModule,
