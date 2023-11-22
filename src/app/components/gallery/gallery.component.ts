@@ -7,6 +7,7 @@ import {MessagesModule} from "primeng/messages";
 import {Message} from "primeng/api";
 import {Observable} from "rxjs";
 import {Store} from "@ngrx/store";
+import {mockProducts} from "../../shared/data";
 
 @Component({
   selector: 'app-gallery',
@@ -17,7 +18,7 @@ import {Store} from "@ngrx/store";
 })
 export class GalleryComponent implements OnInit, AfterViewInit {
 
-  @Input() products!: Product[];
+  @Input() products: Product[] = mockProducts;
   @Output() setViewFn = new EventEmitter<ViewType>();
   @ViewChild(GalleryComponent) gallery!: GalleryComponent;
   images: GalleryItem[] = [];

@@ -1,6 +1,8 @@
 <header class="header-container">
 
-  <img [routerLink]="customRoutes.Index" src="assets/images/brand.svg" alt="Logo">
+  <img [routerLink]="isLogged() ? customRoutes.Products : customRoutes.Index"
+       src="assets/images/brand.svg"
+       alt="Logo">
 
   <div *ngIf="!isLogged()">
     <div [routerLink]="customRoutes.Index">Home</div>

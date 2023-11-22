@@ -17,7 +17,7 @@ export class ProductsService {
   }
 
   getProducts(filters: ProductsFilteringParams): Observable<Product[]> {
-    // return of(mockProducts);
+    return of(mockProducts);
 
     let query = '';
     if (filters.base) {
