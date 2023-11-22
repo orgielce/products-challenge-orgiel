@@ -18,6 +18,7 @@ export class ProductsService {
 
   getProducts(filters: ProductsFilteringParams): Observable<Product[]> {
     // return of(mockProducts);
+    console.log(filters, 'inside service')
     let query = '';
     if (filters.base) {
       query = `search=${filters.base}&formatted=y&page=${Number(filters.page) === 1 ? 1 : filters.page}`;

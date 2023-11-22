@@ -90,12 +90,12 @@ export class KeyInterceptor implements HttpInterceptor {
               });
               break;
             case 404:
-              messAlert = 'No data returned'.toUpperCase();
-              Swal.fire({
-                title: 'Data',
-                text: messAlert,
-                icon: 'error'
-              }).then(() => console.log(404));
+              // messAlert = 'No data returned'.toUpperCase();
+              // Swal.fire({
+              //   title: 'Data',
+              //   text: messAlert,
+              //   icon: 'error'
+              // }).then(() => console.log(404));
               break;
             case 405:
             case 409:

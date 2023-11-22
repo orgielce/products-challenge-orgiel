@@ -40,9 +40,6 @@ export class ProductsComponent implements OnInit {
   setCurrentView = (current: ViewType) => this.currentView = current;
 
   setParams = (time: number = 1500): void => {
-    if (this.generalSearch.nativeElement.value.length === 0) {
-      return;
-    }
     setTimeout(() => {
       this.store.dispatch(
         ProductAction.UpdateProductsParams({
