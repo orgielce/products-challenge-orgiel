@@ -38,7 +38,6 @@ export class GalleryComponent implements OnInit, AfterViewInit {
     this.products.map(el => {
       const item = new ImageItem({src: el.images[0], thumb: el.images[0], alt: el.title})
       this.posters.push(item);
-      // console.log(this.posters, 1)
     });
 
     this.images = this.posters;

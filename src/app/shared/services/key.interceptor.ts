@@ -95,7 +95,7 @@ export class KeyInterceptor implements HttpInterceptor {
               //   title: 'Data',
               //   text: messAlert,
               //   icon: 'error'
-              // }).then(() => console.log(404));
+              // }).then();
               break;
             case 405:
             case 409:
@@ -104,14 +104,14 @@ export class KeyInterceptor implements HttpInterceptor {
                 title: 'Method request',
                 text: error.statusText.toUpperCase(),
                 icon: 'error'
-              }).then(() => console.log('Method request'));
+              }).then();
               break;
             case 422:
               Swal.fire({
                 title: 'Error',
                 text: error.statusText.toUpperCase(),
                 icon: 'error'
-              }).then(() => console.log('Error 422'));
+              }).then();
               break;
             case 429:
               messAlert = 'Exceeded API call limits'.toUpperCase();
@@ -119,7 +119,7 @@ export class KeyInterceptor implements HttpInterceptor {
                 title: 'Exceeded limit',
                 text: messAlert,
                 icon: 'error'
-              }).then(() => console.log('Error 429'));
+              }).then();
               break;
             case 500:
             case 503:
@@ -128,7 +128,7 @@ export class KeyInterceptor implements HttpInterceptor {
                 title: 'SERVICE',
                 text: messAlert,
                 icon: 'error'
-              }).then(() => console.log('Error SERVICE'));
+              }).then();
               break;
             case 401:
               messAlert = 'The key token is invalid.'.toUpperCase();

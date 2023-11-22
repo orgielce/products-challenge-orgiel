@@ -3,11 +3,11 @@ import {ProductsFilteringParams} from "../models";
 export const ProductsDefaultFilterParams: ProductsFilteringParams = {
   barcode: '',
   asin: '',
-  brand: 'Nike',
+  brand: '',
   mpn: '',
   category: '',
   manufacturer: '',
   title: '',
   page: '1',
-  base: ''
+  base: 'Nike'
 };

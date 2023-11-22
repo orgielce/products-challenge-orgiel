@@ -1,11 +1,12 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 import {GalleryComponent, PaginatorComponent, TableComponent} from "../../components";
 
 import {ProductsComponent} from './products.component';
 import {ProductsRoutingModule} from "./products-routing.module";
+
 import {TooltipModule} from "primeng/tooltip";
 
 @NgModule({
@@ -19,7 +20,8 @@ import {TooltipModule} from "primeng/tooltip";
     PaginatorComponent,
     GalleryComponent,
     TableComponent,
-    TooltipModule
+    TooltipModule,
+    ReactiveFormsModule
   ]
 })
 export class ProductsModule {

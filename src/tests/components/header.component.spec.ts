@@ -29,7 +29,6 @@ describe('HeaderComponent', () => {
 
   test('should have dom elements', () => {
     fixture.detectChanges();
-    // console.log(compiled.innerHTML);
     const headerContainer = compiled.querySelector('.header-container');
     const logo = compiled.querySelector('img');
 
