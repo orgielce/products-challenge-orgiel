@@ -3,9 +3,6 @@
 input, button {
   transition: all 0.5s ease-out;
 }
-input::placeholder {
-  color: white;
-}
 .p-tooltip .p-tooltip-text {
   padding: 10px !important;
   background-color: var(--background7) !important;

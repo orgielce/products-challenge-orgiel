@@ -15,10 +15,12 @@ import {NgRxModule} from "./modules";
 
 import {GALLERY_CONFIG, GalleryConfig} from "ng-gallery";
 import {HeaderComponent, PageNotFoundComponent} from "./components";
+import { AboutComponent } from './components/about/about.component';
+import { ChallengeComponent } from './components/challenge/challenge.component';
 
 @NgModule({
   declarations: [
-    AppComponent, PageNotFoundComponent
+    AppComponent, PageNotFoundComponent, AboutComponent, ChallengeComponent
   ],
     imports: [
         BrowserModule,
