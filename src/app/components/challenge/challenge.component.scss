@@ -1,0 +1,22 @@
+.challenge-container {
+  border-radius: 12px;
+  border: 1px solid #eee;
+  color: #eee;
+  display: block;
+  height: auto;
+  margin: 15px;
+
+  img {
+    display: block;
+    height: 50px;
+    margin: auto auto 10px auto;
+    width: 50px;
+  }
+
+  p {
+    align-self: center;
+    color: var(--background4);
+    font-size: 20px;
+    padding: 10px;
+  }
+}
