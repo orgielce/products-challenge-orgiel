@@ -4,6 +4,42 @@ exports[`AppComponent should match with snapshot 1`] = `
 <div
   id="root2"
 >
+  <app-header>
+    <header
+      class="header-container"
+    >
+      <img
+        alt="Logo"
+        src="assets/images/brand.svg"
+        tabindex="0"
+      />
+      <div>
+        <div
+          tabindex="0"
+        >
+          Home
+        </div>
+        <div
+          tabindex="0"
+        >
+          About
+        </div>
+        <div
+          tabindex="0"
+        >
+          Challenge
+        </div>
+      </div>
+      
+      <div
+        tabindex="0"
+      >
+        Login
+      </div>
+      
+      
+    </header>
+  </app-header>
   <router-outlet />
   
   <ngx-spinner

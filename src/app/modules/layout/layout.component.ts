@@ -32,18 +32,4 @@ export class LayoutComponent {
     productsService.getMockProducts()
       .then(prodducts => this.products = prodducts);
   }
-
-  // getSeverity(status: string) {
-  //   switch (status) {
-  //     case 'INSTOCK':
-  //       return 'success';
-  //       break;
-  //     case 'LOWSTOCK':
-  //       return 'warning';
-  //       break;
-  //     case 'OUTOFSTOCK':
-  //       return 'danger';
-  //       break;
-  //   }
-  // }
 }

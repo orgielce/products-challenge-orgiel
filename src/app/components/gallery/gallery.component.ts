@@ -35,7 +35,7 @@ export class GalleryComponent implements OnInit, AfterViewInit {
     this.searchParams$ = this.store.select((store) => store.products.searchParams);
     this.searchParams$.subscribe(params => this.searchParams = params);
 
-    this.products.map(el => {
+    this.products?.map(el => {
       const item = new ImageItem({src: el.images[0], thumb: el.images[0], alt: el.title})
       this.posters.push(item);
     });
