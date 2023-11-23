@@ -25,6 +25,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 13. La tabla de productos se puede filtrar por búsqueda general, barcode, mpn, brand, category y presenta paginado.
 14. Presenta loader personalizado, simulando la marca de la empresa.
 15. Se trabajó con standalone components, carga peresosa de módulos, ngrx, rxjs, librerias externas como primeng, ng-gallery, enums, guard, servicios, interceptor con manejo de errores, pruebas basadas en jest, nomenclatura de git conventional commits (https://github.com/qoomon/git-conventional-commits).
+16. El los tests se emplea la detección de cambios y se importan las dependencias de los componentes para detectar posibles errores.
 
 ## Development server
 

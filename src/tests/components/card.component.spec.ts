@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CardComponent } from '../../app/components/card/card.component';
+import {RouterTestingModule} from "@angular/router/testing";
 
 describe('CardComponent', () => {
   let component: CardComponent;
@@ -8,7 +9,7 @@ describe('CardComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [CardComponent]
+      imports: [CardComponent, RouterTestingModule]
     });
     fixture = TestBed.createComponent(CardComponent);
     component = fixture.componentInstance;

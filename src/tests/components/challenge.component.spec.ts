@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ChallengeComponent } from './challenge.component';
+import { ChallengeComponent } from '../../app/components/challenge/challenge.component';
 
 describe('ChallengeComponent', () => {
   let component: ChallengeComponent;
@@ -15,7 +15,7 @@ describe('ChallengeComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  test('should create', () => {
     expect(component).toBeTruthy();
   });
 });

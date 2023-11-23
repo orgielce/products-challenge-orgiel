@@ -1,8 +1,13 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
-import {GalleryComponent} from '../../app/components/gallery/gallery.component';
 import {ProductsService} from "../../app/shared";
 import {HttpClientModule} from "@angular/common/http";
+
+import {provideMockStore} from "@ngrx/store/testing";
+import {StoreModule} from "@ngrx/store";
+
+import {GalleryComponent} from "../../app/components";
 
 describe('GalleryComponent', () => {
   let component: GalleryComponent;
@@ -11,8 +16,8 @@ describe('GalleryComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HttpClientModule],
-      providers: [ProductsService]
+      imports: [BrowserAnimationsModule, HttpClientModule, StoreModule],
+      providers: [ProductsService, provideMockStore({})]
     }).compileComponents();
   });
 

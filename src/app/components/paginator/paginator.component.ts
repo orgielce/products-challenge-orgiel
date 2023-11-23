@@ -18,7 +18,7 @@ export class PaginatorComponent implements OnInit {
   currentPage = new FormControl();
 
   ngOnInit() {
-    this.currentPage.setValue(this.searchParams.page);
+    this.currentPage.setValue(this.searchParams?.page);
 
     // cambiando el numero de pagina manualmente
     // verifico que es un numero y > 0

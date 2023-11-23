@@ -6,6 +6,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {NgRxModule} from "../app/modules/store.module";
 import {NgxSpinnerModule} from "ngx-spinner";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {HeaderComponent} from "../app/components";
 
 
 describe('AppComponent', () => {
@@ -21,7 +22,8 @@ describe('AppComponent', () => {
       BrowserAnimationsModule,
       HttpClientModule,
       NgxSpinnerModule,
-      NgRxModule
+      NgRxModule,
+      HeaderComponent
     ],
     declarations: [AppComponent]
   }));

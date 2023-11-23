@@ -1,20 +1,23 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TableComponent } from '../../app/components/table/table.component';
+import {RouterTestingModule} from "@angular/router/testing";
 import {HttpClientModule} from "@angular/common/http";
 import {provideMockStore} from "@ngrx/store/testing";
 import {StoreModule} from "@ngrx/store";
 
-describe('TableComponent', () => {
-  let component: TableComponent;
-  let fixture: ComponentFixture<TableComponent>;
+import {AuthComponent} from "../../app/modules";
+
+describe('AuthComponent', () => {
+  let component: AuthComponent;
+  let fixture: ComponentFixture<AuthComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [TableComponent, HttpClientModule, StoreModule],
+      declarations: [AuthComponent],
+      imports: [HttpClientModule, RouterTestingModule, StoreModule],
       providers: [provideMockStore({})]
     });
-    fixture = TestBed.createComponent(TableComponent);
+    fixture = TestBed.createComponent(AuthComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
