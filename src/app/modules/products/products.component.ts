@@ -56,13 +56,22 @@ export class ProductsComponent implements OnInit {
       .subscribe(() => this.setParams());
     this.controlBarcode.valueChanges
       .pipe(debounceTime(500))
-      .subscribe(() => this.filterParams());
+      .subscribe(() => {
+        this.controlGeneral.setValue('');
+        this.filterParams();
+      });
     this.controlMpn.valueChanges
       .pipe(debounceTime(500))
-      .subscribe(() => this.filterParams());
+      .subscribe(() => {
+        this.controlGeneral.setValue('');
+        this.filterParams();
+      });
     this.controlBrand.valueChanges
       .pipe(debounceTime(500))
-      .subscribe(() => this.filterParams());
+      .subscribe(() => {
+        this.controlGeneral.setValue('');
+        this.filterParams();
+      });
   }
 
   setCurrentView = (current: ViewType) => this.currentView = current;
