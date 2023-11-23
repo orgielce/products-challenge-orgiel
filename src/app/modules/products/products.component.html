@@ -1,29 +1,55 @@
-<app-header></app-header>
-
 <main class="products-container">
   <div class="products-container-title">
     Products
-    <i class="pi pi-th-large"></i>
-    <i class="pi pi-bars"></i>
+    <i class="pi pi-th-large"
+       pTooltip="Show products gallery" tooltipPosition="bottom"
+       (click)="setCurrentView(views.gallery)"></i>
+    <i class="pi pi-bars"
+       pTooltip="Show products table" tooltipPosition="bottom"
+       (click)="setCurrentView(views.table)"></i>
   </div>
 
   <div class="products-container-filters">
-    <input type="search" placeholder="Search...">
+    <input type="search" placeholder="Search..." [formControl]="controlGeneral">
+
+    <app-paginator
+      [searchParams]="searchParams"
+      (updateCurrentPage)="setCurrentPage($event)"></app-paginator>
+  </div>
+
+  <fieldset class="custom-filters">
+    <legend>Filters</legend>
 
     <div>
-      <span>Filtros: </span>
+      <div>
+        <input type="text" placeholder="Barcode" [formControl]="controlBarcode">
+        <input type="text" placeholder="Mpn" [formControl]="controlMpn">
+        <input type="text" placeholder="Brand" [formControl]="controlBrand">
+        <select name="" id="" [formControl]="controlCategory" (change)="filterParams()">
+          <option value="-1">All Category</option>
+          <option value="Apparel & Accessories > Shoes">Apparel & Accessories > Shoes</option>
+          <option value="Apparel & Accessories > Clothing > Pants">Apparel & Accessories > Clothing > Pants</option>
+          <option value="Media > Books > Print Books">Media > Books > Print Books</option>
+          <option value="Home & Garden > Decor > Throw Pillows">Home & Garden > Decor > Throw Pillows</option>
+        </select>
+      </div>
 
+      <i class="pi pi-times" (click)="clearParams()"
+         pTooltip="Clear all filters" tooltipPosition="bottom"
+      ></i>
     </div>
+  </fieldset>
 
-    <app-paginator></app-paginator>
-  </div>
+  <app-gallery
+    *ngIf="currentView === views.gallery"
+    [products]="products"
+    (setViewFn)="setCurrentView($event)"
+  ></app-gallery>
 
-  <br>
-  <div>
-    grid
-    <br>
-    <div *ngFor="let item of products$ | async; let i = index">
-      {{item?.barcode_number}} {{item?.title}}
-    </div>
-  </div>
+  <app-table
+    *ngIf="currentView === views.table"
+    [products]="products"
+  ></app-table>
+
+
 </main>

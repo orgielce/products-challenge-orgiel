@@ -8,30 +8,43 @@ import {AppComponent} from './app.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {KeyInterceptor} from "./shared";
 
-import {NgRxModule} from "./modules/store.module";
-
 import {NgxSpinnerModule} from "ngx-spinner";
 import {MessageService} from "primeng/api";
 
+import {NgRxModule} from "./modules";
+
+import {GALLERY_CONFIG, GalleryConfig} from "ng-gallery";
+import {HeaderComponent, PageNotFoundComponent} from "./components";
+import { AboutComponent } from './components/about/about.component';
+import { ChallengeComponent } from './components/challenge/challenge.component';
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent, PageNotFoundComponent, AboutComponent, ChallengeComponent
   ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    HttpClientModule,
-    AppRoutingModule,
-    NgxSpinnerModule,
-    // ngrx
-    NgRxModule
-  ],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        HttpClientModule,
+        AppRoutingModule,
+        NgxSpinnerModule,
+        // ngrx
+        NgRxModule,
+        HeaderComponent
+    ],
   providers: [
     MessageService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: KeyInterceptor,
       multi: true
+    },
+    {
+      provide: GALLERY_CONFIG,
+      useValue: {
+        autoHeight: true,
+        imageSize: 'cover'
+      } as GalleryConfig
     }
   ],
   bootstrap: [AppComponent]

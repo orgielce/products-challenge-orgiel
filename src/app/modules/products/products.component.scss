@@ -5,6 +5,9 @@
   margin: 20px;
   padding: 10px 20px;
 
+  height: calc(100% - 70px);
+  @extend .custom-scroll;
+
   &-title {
     display: flex;
     font-size: 24px;
@@ -30,23 +33,84 @@
 
   &-filters > input {
     width: 260px;
-    border: transparent;
-    outline: transparent;
     display: block;
     padding: 9px 12px 9px 40px;
-    background: transparent url("src/assets/icons/buscar.svg") no-repeat 10px ;
-    background-size: 20px;
-    background-color: var(--background1);
-    border-radius: 7px;
-
-    &:focus {border: transparent; outline: transparent;}
-
-    &:hover {border: transparent; outline: transparent;}
-
-    &::placeholder {color: var(--background4)}
+    background: transparent url(buscar.svg) no-repeat 10px ;
+    @extend .custom-input;
   }
 
   &-filters > div:first-of-type {
     display: flex;
   }
+}
+
+.custom-scroll {
+  overflow-y: scroll !important;
+  // firefox
+  scrollbar-width: thin;
+  scrollbar-color: var(--background4) var(--background3);
+
+  // chrome
+  &::-webkit-scrollbar {
+    width: 7px;
+    background: var(--background3);
+    border-radius: 10px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--background4);
+    border-radius: 10px;
+    width: 7px;
+  }
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px var(--background4);
+    border-radius: 10px;
+    width: 7px;
+  }
+}
+
+.custom-filters {
+  border-radius: 7px;
+  border: 1px solid #eee;
+  color: var(--background4);
+  height: auto;
+  margin: 15px 0;
+  padding: 15px;
+}
+
+.custom-filters > div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.custom-filters > div > i {
+  align-self: center;
+  cursor: pointer;
+}
+
+.custom-filters > div > div > select {
+  width: 180px;
+  height: 33px;
+  padding: 9px 12px;
+  @extend .custom-input;
+}
+
+.custom-filters > div > div > input {
+  width: 180px;
+  padding: 9px 12px;
+  margin-right: 10px;
+  @extend .custom-input;
+}
+
+.custom-input {
+  border: transparent;
+  outline: transparent;
+  background-size: 20px;
+  background-color: var(--background1);
+  border-radius: 7px;
+
+  &:focus {border: transparent; outline: transparent;}
+
+  &:hover {border: transparent; outline: transparent;}
+
+  &::placeholder {color: var(--background4)}
 }

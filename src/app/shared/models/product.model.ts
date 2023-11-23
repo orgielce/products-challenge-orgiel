@@ -85,4 +85,5 @@ export interface ProductsFilteringParams {
   brand?: string;
   category?: string;
   page?: string;
+  base?: string;
 }

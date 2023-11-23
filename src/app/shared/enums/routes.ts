@@ -3,6 +3,8 @@ export enum ROUTES_PATH {
   Login = 'auth/login',
   Index = 'index',
   Base = '',
+  About = 'about',
+  Challenge = 'challenge',
 
   // protected routes
   Products = 'products',

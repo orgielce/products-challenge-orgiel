@@ -1,0 +1,47 @@
+<div class="challenge-container">
+  <img src="assets/icons/comment.PNG" alt="Comment">
+  <p>
+    La aplicación <b>Challenge Orgiel</b> fue generada con Angular CLI versión 16.2.7.<br>
+
+    Configuraciones básicas: <br>
+
+    Tecnologías empleadas: NodeJS 18.18.2 y pnpm 8.10.4. <br>
+
+    Se configura NgRx para la gestión de estado de los productos y el usuario autenticado. <br>
+
+    La app cuenta con información base en la ruta /index y para ver los productos es necesario autenticarse introduciendo su nombre y su key generada en la api barcodelookup, simulando que está introduciendo usuario y contraseña. <br>
+
+    La app dentro de src cuenta con los directorios app, assets, environments y tests. Dentro de app cuenta con components, modules y shared. <br>
+
+    Se configura un proxy (src/proxy.conf.json) para llegar del entorno de desarrollo http://localhost:4200 hasta el dominio del api. <br>
+
+    De cada carpeta en el dominio shared se exporta todo mediante un barrel (index.ts), para hacer los path más cortos al importar como dependencias. <br>
+
+    Eliminadas las dependencias de Jasmine y Karma. <br>
+
+    Agregado Jest para probar la app mediante pnpm run test:watch. <br>
+
+    Las pruebas a cada pieza de nuestra app se encuentran en src/tests. Donde se replica la estructura de directorios de la carpeta src/app para que se muestre más limpio el proyecto y todas las pruebas queden legibles en src/tests. Configuramos fotos o snapshots de los componentes para evitar cambios que rompan la app. <br>
+
+    Se utiliza primeng para mostrar los iconos. <br>
+
+    Se maqueta casi todo sin librerías de terceros. <br>
+
+    La tabla de productos se puede filtrar por búsqueda general, barcode, mpn, brand, category y presenta paginado. <br>
+
+    Presenta loader personalizado, simulando la marca de la empresa. <br>
+
+    Se trabajó con standalone components, carga peresosa de módulos, ngrx, rxjs, librerias externas como primeng, ng-gallery, enums, guard, servicios, interceptor con manejo de errores, pruebas basadas en jest, nomenclatura de git conventional commits (https://github.com/qoomon/git-conventional-commits). <br>
+
+    <b>Development server:</b> <br>
+      1. <b>pnpm run start</b> = "ng serve --proxy-config src/proxy.conf.json", <br>
+      2. <b>pnpm run start:dev</b> = "ng serve --proxy-config src/proxy.conf.json", <br>
+      3. <b>pnpm run build</b> = "ng build --configuration=production", <br>
+      4. <b>pnpm run watch</b> = "ng build --watch --configuration development", <br>
+      5. <b>pnpm run test</b> = "jest", <br>
+      6. <b>pnpm run test:watch</b> = "jest --watchAll" <br>
+
+    <br>
+    Noviembre 2023<br>
+  </p>
+</div>

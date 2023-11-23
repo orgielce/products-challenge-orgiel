@@ -1,16 +1,18 @@
 <header class="header-container">
 
-  <img [routerLink]="customRoutes.Index" src="assets/images/brand.svg" alt="Logo">
+  <img [routerLink]="isLogged() ? customRoutes.Products : customRoutes.Index"
+       src="assets/images/brand.svg"
+       alt="Logo">
 
   <div *ngIf="!isLogged()">
-    <div>Home</div>
-    <div>About</div>
-    <div>My Products</div>
+    <div [routerLink]="customRoutes.Index">Home</div>
+    <div [routerLink]="customRoutes.About">About</div>
+    <div [routerLink]="customRoutes.Challenge">Challenge</div>
   </div>
 
   <div *ngIf="!isLogged()" [routerLink]="customRoutes.Login">Login</div>
 
-  <div *ngIf="isLogged()">
+  <div *ngIf="isLogged()" (click)="setLogout()">
     <i class="pi pi-user"></i>
     {{user.name}}
     <i class="pi pi-sign-out"></i>

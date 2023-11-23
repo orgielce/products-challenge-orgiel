@@ -1,0 +1,43 @@
+<p-messages  *ngIf="products && products.length === 0"
+             (click)="reloadProducts()"
+             [value]="messages"
+             [enableService]="false"
+             [closable]="false"></p-messages>
+
+<div class="table-container" *ngIf="products && products.length > 0">
+
+  <div class="gridify-header">
+    <span pTooltip="The product random image" tooltipPosition="bottom"></span>
+    <span pTooltip="The product title" tooltipPosition="bottom">TITLE</span>
+    <span pTooltip="The product barcode" tooltipPosition="bottom">BARCODE</span>
+    <span pTooltip="Manufacturer part number and Amazon Standard ID Number" tooltipPosition="bottom">MPN / ASIN</span>
+    <span pTooltip="The product price" tooltipPosition="bottom">PRICE</span>
+    <span pTooltip="The product brand" tooltipPosition="bottom">BRAND</span>
+    <span pTooltip="The category to which the product belongs" tooltipPosition="bottom">CATEGORY</span>
+  </div>
+
+  <div class="gridify-body"
+       [ngClass]="{'gray-row': i % 2 === 0}"
+       *ngFor="let product of products; let i = index; trackBy: trackByIndex">
+    <span>
+      <img src="{{product.images[0]}}" alt="{{product.title}}" (error)="loadDefaultImage($event)">
+    </span>
+    <span pTooltip="{{product.title}}" tooltipPosition="bottom" class="title-row">
+      <div>{{product.title}}</div>
+      <div>
+        Color:
+        <div [style.background-color]="product?.color"></div>
+      </div>
+    </span>
+    <span pTooltip="{{product.barcode_number}}" tooltipPosition="bottom">{{ product.barcode_number }}</span>
+    <span class="mpn-asin-row">
+      <div pTooltip="{{product.mpn}}" tooltipPosition="bottom"><span>MPN:</span> {{ product.mpn }}</div>
+      <div pTooltip="{{product.asin}}" tooltipPosition="bottom"><span>ASIN:</span> {{ product.asin }}</div>
+    </span>
+    <span class="price-row">
+      {{getPrice(product)}}
+    </span>
+    <span pTooltip="{{product.brand}}" tooltipPosition="bottom">{{ product.brand }}</span>
+    <span pTooltip="{{product.category}}" tooltipPosition="bottom">{{ product.category }}</span>
+  </div>
+</div>

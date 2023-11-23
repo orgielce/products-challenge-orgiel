@@ -1,1 +1,10 @@
-<p>page-not-found works!</p>
+<div class="not-found-container">
+  <div class="not-fount-content">
+    <img src="assets/icons/404.svg" alt="404">
+    <p>Oops!</p>
+    <h1 >Page not Found</h1>
+    <button type="button" [routerLink]="isLogged() ? customRoutes.Products : customRoutes.Base">
+      Go to {{isLogged() ? 'Products' : 'Index'}}
+    </button>
+  </div>
+</div>

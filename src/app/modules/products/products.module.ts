@@ -1,12 +1,13 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
-import {HeaderComponent} from "../../components";
+import {GalleryComponent, PaginatorComponent, TableComponent} from "../../components";
+
 import {ProductsComponent} from './products.component';
 import {ProductsRoutingModule} from "./products-routing.module";
-import {FormsModule} from "@angular/forms";
-import {InputTextModule} from "primeng/inputtext";
-import {PaginatorComponent} from "../../components/paginator/paginator.component";
+
+import {TooltipModule} from "primeng/tooltip";
 
 @NgModule({
   declarations: [
@@ -14,11 +15,13 @@ import {PaginatorComponent} from "../../components/paginator/paginator.component
   ],
   imports: [
     CommonModule,
-    HeaderComponent,
     ProductsRoutingModule,
     FormsModule,
-    // InputTextModule
-    PaginatorComponent
+    PaginatorComponent,
+    GalleryComponent,
+    TableComponent,
+    TooltipModule,
+    ReactiveFormsModule
   ]
 })
 export class ProductsModule {

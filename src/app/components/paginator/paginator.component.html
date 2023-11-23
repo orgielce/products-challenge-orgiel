@@ -1,12 +1,17 @@
 <div class="paginator-container">
 
-  <div class="paginator-container-left">
+  <div class="paginator-container-left"
+       [ngClass]="{'btn-disabled': currentPage.value === '1'}"
+       (click)="previous()">
     <i class="pi pi-chevron-left"></i>
   </div>
 
-  <input class="page-index-active" maxlength="3" value="1"/>
+  <input [formControl]="currentPage"
+         class="page-index-active"
+         (input)="onlyNumbers()"
+         readonly maxlength="2"/>
 
-  <div class="paginator-container-right">
+  <div class="paginator-container-right" (click)="next()">
     <i class="pi pi-chevron-right"></i>
   </div>
 

@@ -8,5 +8,6 @@ export const ProductsDefaultFilterParams: ProductsFilteringParams = {
   category: '',
   manufacturer: '',
   title: '',
-  page: '1'
+  page: '1',
+  base: 'Nike'
 };

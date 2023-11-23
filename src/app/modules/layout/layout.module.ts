@@ -2,8 +2,7 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {LayoutComponent} from './layout.component';
 import {LayoutRoutingModule} from "./layout-routing.module";
-import {HeaderComponent} from "../../components";
-
+import {CardComponent, GalleryComponent} from "../../components";
 
 @NgModule({
   declarations: [
@@ -11,8 +10,9 @@ import {HeaderComponent} from "../../components";
   ],
   imports: [
     CommonModule,
-    HeaderComponent,
-    LayoutRoutingModule
+    LayoutRoutingModule,
+    GalleryComponent,
+    CardComponent
   ]
 })
 export class LayoutModule {

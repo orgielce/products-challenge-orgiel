@@ -1,7 +1,7 @@
 .paginator-container {
   display: flex;
   gap: 10px;
-  align-items: end;
+  align-items: flex-end;
 
   input {
     background-color: var(--color-base);
@@ -33,3 +33,5 @@
 
   i { color: var(--background4); }
 }
+
+.btn-disabled { opacity: .4; cursor: default; }

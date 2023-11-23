@@ -15,7 +15,7 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser-esbuild",
+          "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist",
             "index": "src/index.html",
@@ -25,6 +25,9 @@
             ],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
+            "allowedCommonJsDependencies": [
+              "sweetalert2", "deepmerge"
+            ],
             "assets": [
               "src/favicon.ico",
               "src/assets"
@@ -74,11 +77,11 @@
           "configurations": {
             "production": {
               "browserTarget": "challenge-orgiel:build:production",
-              "proxyConfig": "proxy.conf.json"
+              "proxyConfig": "src/proxy.conf.json"
             },
             "development": {
               "browserTarget": "challenge-orgiel:build:development",
-              "proxyConfig": "proxy.conf.json"
+              "proxyConfig": "src/proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"

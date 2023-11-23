@@ -30,6 +30,12 @@ const reducer = createReducer(
         products: p.products
       })
     ),
+    on(
+      ProductAction.UpdateProductsParams,
+      (state, t) => ({
+        ...state, searchParams: { ...state.searchParams, ...t.params },
+      })
+    ),
   )
 ;
 
