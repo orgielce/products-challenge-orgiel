@@ -24,7 +24,7 @@ export class ProductsComponent implements OnInit {
   searchParams$!: Observable<ProductsFilteringParams>;
   searchParams!: ProductsFilteringParams;
   views = ViewType;
-  currentView: ViewType = this.views.gallery;
+  currentView: ViewType = this.views.table;
   controlGeneral = new FormControl();
   controlBarcode = new FormControl();
   controlMpn = new FormControl();
