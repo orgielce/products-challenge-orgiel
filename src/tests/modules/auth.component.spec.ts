@@ -6,6 +6,8 @@ import {provideMockStore} from "@ngrx/store/testing";
 import {StoreModule} from "@ngrx/store";
 
 import {AuthComponent} from "../../app/modules";
+import {FormGroup, FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {BrowserDynamicTestingModule} from "@angular/platform-browser-dynamic/testing";
 
 describe('AuthComponent', () => {
   let component: AuthComponent;
@@ -14,7 +16,7 @@ describe('AuthComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [AuthComponent],
-      imports: [HttpClientModule, RouterTestingModule, StoreModule],
+      imports: [FormsModule, ReactiveFormsModule, BrowserDynamicTestingModule, HttpClientModule, RouterTestingModule, StoreModule],
       providers: [provideMockStore({})]
     });
     fixture = TestBed.createComponent(AuthComponent);
